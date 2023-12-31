@@ -1,0 +1,695 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2758
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Bold;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red170\green171\blue37;}
+{\*\expandedcolortbl;;\csgray\c0;\cssrgb\c72331\c71682\c18599;}
+\margl1440\margr1440\vieww29780\viewh16780\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \
+Git & GitHub (not the same thing). \
+\
+What is Git ? (Git is local on the laptop, or on computer)\
+\
+- Helps to provide code versioning. \
+\
+You are writing code, and you have written code for feature1. \
+\
+You are writing code, for feature2, and there is a realization, that things are\
+Breaking, so we want to go to feature1 back. \
+\
+So in version control systems, versions are maintained, and we can go back to the previous version. \
+\
+# For big projects:\
+\
+- multiple people work on the project. So how do people collaborate?\
+\
+- base code is taken by three developers. Say each developer works on different features\
+\
+Base code\
+\
+- developer-1 (feature 1)\
+- developer-2 (feature 2)\
+- developer-3 (feature 3)\
+\
+If there is no collaboration, there will be sequential process, \
+But this can\'92t be happening. So, we need to take the individual feature code, \
+And start working on that. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 # ==================================================================================\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+What is Github? (Website/remote, we can host the code). \
+\
+# Basic pyspark project structure\
+\
+Lending-club-proj-01 say is on my laptop. This will have a certain kind of structure.\
+\
+	- conf folder (two types of configurations, one is spark related, other is project related). \
+\
+			- spark.conf (may have spark configurations)\
+					# spark.app.name = lendingclub\
+					# spark.executor.cores = 5\
+					# spark.executor.memory = 10G\
+\
+			- project.conf\
+					# input.file.path = \'93/user/\{username\}/\'85.\'94\
+					# hive.database = retaildb\
+\
+\
+	- lib folder\
+	\
+			- utils.py (creating spark session, functions that need to be reused)\
+			- transformations.py (Write all the transformations)\
+\
+\
+	- main.py (entry point and we call various functions from here). \
+\
+	- logger.py ( to handle logging). \
+\
+\
+# The structure above is on the local system. Then how would others collaborate \
+# on it. So, it has to be kept at certain place. \
+# therefore lending_club_project is a local repository (through git software)\
+\
+# , which has to be \
+# hosted online (on a website, for a platform). \'97> should be remote, which happens\
+# through Github.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 # ==================================================================================\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+To check whether git is installed, just do:\
+\
+Git -\'97version.. \
+\
+1st scenario:\
+\
+Start by creating a repository in GitHub, and then the entire procedure is done. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic.png \width10340 \height1820 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 1.png \width11620 \height4000 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+If the existing file is modified git status will say modified. \
+If a new file (say main.py) is added in the above case, \
+then it will say Untracked files. \
+\
+How to commit these changes? Because whenever we make changes, \
+By default the changes are unstated. \
+We have to stage these changes. \
+\
+Making changes/modifying files (Unstaged) \'97> stage \'97> commit\
+\
+1. Make changes/ add new files.\
+\
+2. We need to stage the changes.\
+(So that they re to be committed)\
+\
+3. We can commit all the staged changes. \
+\
+# So how to stage the changes?  Or new files?\
+\
+Git add . \'97> any changes which are unstated, please stage them. \
+\
+\
+# now if we check, then these changes are ready to be committed, as\
+# they are staged. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 2.png \width10960 \height2980 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+# ==================================================================================\
+\
+After the changes are staged, we need to put commit them. \
+So how to commit these changes ? \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 3.png \width18060 \height1540 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+git commit -m \'93making changes to readme and adding a new main file\'94\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 4.png \width9220 \height2600 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+	now if you see there is nothing to commit further. \
+\
+# ==================================================================================\
+\
+So in short, \
+\
+1. Modify, add, delete the files whatever changes are necessary according to the work. \
+\
+2. git add . \
+\
+3. git commit -m \'93meaningful message\'94 \
+ \
+# ==================================================================================\
+\
+Now it says that local (laptop) is ahead of remote (GitHub) by 1 commit. \
+After doing git commit -m, still on the GitHub, the push hasn\'92t yet happened. \
+So we have to push the changes.. to wherever we want to push. \
+\
+\
+4. Get a token (personal access token) and put the following:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \CocoaLigature0 git remote set-url origin https://\{personal_access_token\}@github.com/luv91/ApacheSparkProject\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+personal_access_token need to be generated via Github. \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\
+\cf0 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 5. git push origin main\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 5.png \width12120 \height760 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+.git folder \'97> would be there for any folder which is tracked by git. \
+\
+\
+Now if you do git status and check, there is nothing to commit:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 7.png \width8540 \height1900 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+# ==================================================================================\
+\
+Following are the steps:\
+\
+1. We created a repository on Github. \
+\
+2. We cloned that repository on our local. \
+\
+3. We made a few changes and added new files. \
+\
+4. You will commit the changes to git (2 step process). \
+\
+   a. git add . (To stage the changes)\
+	b. git commit -m \'93meaningful message\'94  (to commit it)\
+\
+5. To push to main branch (to push the changes to GitHub), again a two step process:\
+\
+	first do authentication if asked:\
+\
+	a. \cf2 \CocoaLigature0 git remote set-url origin https://\{personal_access_token\}@github.com/luv91/ApacheSparkProject\
+\
+	b. git push origin main\
+\
+\cf0 \CocoaLigature1 # ==================================================================================\cf2 \CocoaLigature0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \CocoaLigature1 {{\NeXTGraphic Pasted Graphic 8.png \width19800 \height1600 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \CocoaLigature0 \
+\
+Scenario 2. Currently, we are somewhere in some folder, \
+\
+Which is not a GitHub repository, and we have to tell GitHub to start managing it. \
+\
+git init. Doing that will add a .git folder into it. \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \CocoaLigature1 {{\NeXTGraphic Pasted Graphic 9.png \width11080 \height4300 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+Now bringing it to the staging area. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 10.png \width8520 \height4820 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 11.png \width12460 \height3400 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+Currently they are all on local git. They are not on remote. \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \CocoaLigature0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \CocoaLigature1 {{\NeXTGraphic Pasted Graphic 12.png \width8600 \height1380 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+Now we have to push it to the remote.. \
+\
+Can I say here.. git push origin main. \
+(Here origin means the place, from where the cloning has happened), \
+But when it is from the local, we are not cloning t from anywhere. \
+\
+Thus there is no origin currently for this project. \
+\
+When we clone a remote project the origin is referring to that. \
+\
+But when we start developing on local. Then we need to set the origin. \
+\
+So first create an empty repository and get its url: https://github.com/luv91/lendingclubproj.git\
+\
+So command is: git remote add origin https://github.com/luv91/lendingclubproj.git\
+\
+The above command means, our origin is set now.. \
+\
+To verify the origin: git remote -v\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 13.png \width8920 \height1440 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+# ==================================================================================\
+\
+On which branch we are: git branch\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 14.png \width7820 \height1080 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+Let\'92s say instead of main, it was a master branch, then we would have to \
+Change it to main branch.  \
+\
+To change from master to main branch. \
+\
+ git branch -M main ; where -M means Modify. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 15.png \width9240 \height1500 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+# ==================================================================================\
+\
+Since the origin is set now.. we can do the following:\
+\
+\
+First, on terminal \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \CocoaLigature0 git remote set-url origin https://\{personal_access_token\}@github.com/luv91/{\field{\*\fldinst{HYPERLINK "https://github.com/luv91/lendingclubproj"}}{\fldrslt 
+\f1\b \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 lendingclubproj\
+}}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \CocoaLigature1 \
+Then:  Git push origin main\
+\
+# ==================================================================================\
+\
+If you say the following: git push -u origin main\
+Then, for the next command, you just have to say: git push; and not add the origin main. \
+\
+# ==================================================================================\
+\
+# Branches in Git:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 17.png \width7800 \height1220 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+There is something called as a main branch.. \
+\
+How to check on which branch you are? \'97> git branch\
+\
+How to change a branch name \'97> git branch -M main ( if we need to change the name to main). \
+\
+Question: How do you create a new branch? \
+\
+\'97> create a branch : git branch feature1 (feature1 is the name of the branch currently). \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 18.png \width9200 \height1640 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+As can be seen now there are two branches: feature1, and main. \
+\
+Currently in the main branch. \
+\
+How to change branch, that is how to go to feature1 branch? : git checkout feature1\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 19.png \width9480 \height2020 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+So now we are at feature1 branch.. \
+We should not touch the main branch.. different people have their own different\
+Branches. \
+\
+Say if we have to create the feature2 branch.. what code will come in it?\
+\
+Currently we are. At feature1 branch, and if we do git branch feature2\
+\
+Then the code will be taken from the feature1 branch, since we are at feature1 currently. \
+\
+\
+If we do the command: git checkout -b feature2 (it will do two things at once, first it will create feature2 branch, and next it would checkout to that branch). \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 20.png \width10280 \height2240 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+Created and switched to feature2. \
+\
+so: git checkout -b feature2 (to create and navigate to a new branch). \
+\
+# ==================================================================================\
+\
+If I do : git checkout -b feature3 (this will currently take the code form feature2).\
+\
+What if I want it to take the code from main?\
+\
+  - git checkout main\
+\
+  - git checkout -b feature3 \
+\
+But let\'92s say I am on main and I am creating a branch feature3, and want it to have the\
+Base code from feature2. \
+\
+ - git checkout -b feature3 feature2     (feature2 here signifies where to take the code from). \
+\
+# ==================================================================================\
+\
+What if the branch needs to be deleted. \
+\
+To delete a particular branch, you should be on some other branch,, \
+\
+Say want to delete feature3, can\'92t if you are on feature3\
+\
+Command to delete a branch.. : git branch -d feature3\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 21.png \width21280 \height700 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 22.png \width9860 \height2760 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+We moved to feature2 branch, and then deleted feature3, and that is possible.. \
+\
+# say we modified a file.. (say we modified main.py) \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 23.png \width11600 \height5540 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+Now since we made the changes in the main branch.. \
+If we switch from main to feature1 branch, we can see, that there will be on changes. \
+\
+So, if we do any change.. on any branch, it says in that branch.. \
+\
+# \'97\'97> \
+Let\'92s push the changes to the main.. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 24.png \width10740 \height3340 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+So the changes are pushed.. \
+\
+# ==================================================================================\
+\
+Now there are two branches, and Github shows something like:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 26.png \width19100 \height4520 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+So feature1 has changes which are not ther sin the main branch.. so those need to be fixed. \
+\
+learngitbranching.js.org\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic Pasted Graphic 27.png \width7620 \height7700 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0  {{\NeXTGraphic Pasted Graphic 28.png \width13300 \height14300 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\
+\
+# ==================================================================================\
+\
+We learnt branching in git already.. \
+\
+If you want to merge your changes to main branch, then create a pull request. \
+\
+Once the all request is approved and the code is merged, then we will see\
+Both main and feature1 have the same code. \
+\
+To make sure, local main branch is in sync with Github main branch. \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \CocoaLigature0 git pull origin main\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \CocoaLigature1 {{\NeXTGraphic Pasted Graphic 30.png \width10400 \height4120 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+When you are making changes and you feel you did something wrong in the codebase and you\
+Want to go back to the previous code base then how to achieve that?\
+\
+How to make changes, so that we can go back to the previous changes.. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 # ==================================================================================\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+There are 3 scenarios:\
+\
+1. Scenario 1: you made changes which are not even staged. \
+\
+2. Scenario 2: you made changes and have staged those changes. \
+\
+3. Scenario 3: you made changes and have committed those changes \
+\
+\
+Talking about Scenario 1: \
+\
+you made changes which are not even staged. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 31.png \width11860 \height4140 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \
+\
+I can just do: git restore config/project.conf\
+\
+This will restore the changes in project.conf in config file. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 # ==================================================================================\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Scenario 2: I made the changes, and I will stage these changes.. but will not commit them.. \
+\
+How do I stage \'97>  git add .\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 32.png \width9380 \height2800 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \
+\
+So these are stages.. ready to be committed. \
+\
+What if I want to get rid of these changes?\
+\
+Git restore \'97staged config/project.conf\
+\
+If we do git status now.. we see that one of the change, is brought to the\
+Previous level.. and that\'92s why project.conf is in red.. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 33.png \width10380 \height3740 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \
+\
+Again we will do, git restore config/project.conf\
+\
+This will then bring it to the original code base.. \
+\
+So this one is a 2-step process. \
+\
+So if it is staged, first you onstage them and then restore the files. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 # ==================================================================================\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Senario 3: you made changes and have committed those changes \
+\
+Git log \'97> shows all the commits. (With most recent commit at the top). \
+\
+\
+ -   git reset \'97hard hashvalue (there will be some hash value).. \
+\
+ -   git reset \'97hard 
+\fs22 \cf3 \CocoaLigature0 84a3810cd43970c41cb5f20ecbf6d90eab1c2c6e
+\fs36 \cf0 \CocoaLigature1 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 # ==================================================================================\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+# Git Stash \
+\
+Say what if I have made changes, and they are not committed yet.. I want to park the changes, \
+Somewhere like back side.. and later get them wherever required.. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 36.png \width10740 \height4520 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \
+\
+Keep the changes at a place, so that later I can retrieve it.. \
+\
+ - git stash.. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 37.png \width11620 \height1480 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 38.png \width8600 \height2000 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \
+\
+\
+Thae changes will now not be visible in the files.. they will be gone from the files.. \
+But where are they gone?\
+\
+To get back the Changs -: git stash pop\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 39.png \width10740 \height4140 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \
+\
+After git stash pop,, everything is unstaged now.. \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 # ==================================================================================\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Git stash ( to park the changes somewhere)\
+\
+Git stash pop (to get the changes back). \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 # ==================================================================================\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 What if I want to get rid of these changes altogether?\
+\
+- git stash clear \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 40.png \width9080 \height1320 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \
+\
+When we tried to retrieve the changes again, they are gone.. can\'92t come bake. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 # ==================================================================================\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Let\'92s say two set of things are edited now.. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 41.png \width11720 \height2220 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \
+\
+- git stash pop \'97> it will pop up the top most thing.. \
+\
+- git stash save \'93changes in conf files\'94\
+\
+These messages will appear now when we do git stash list. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 42.png \width10320 \height1760 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \
+\
+- after we do git stash pop, and then do git stash list, we will see the bottom of the stack thing .. \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic Pasted Graphic 43.png \width11100 \height4500 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 # ==================================================================================\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+If we are creating a new file.. and trying to stash it it doesn\'92t get stashed by default.. \
+So to stash them, (so to stash even the untracked file).. \
+\
+- git stash -u    (-u means untracked, with this even the untracked file will be stashed. \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 # ==================================================================================\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+}
